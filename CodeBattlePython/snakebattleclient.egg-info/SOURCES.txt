@@ -1,0 +1,10 @@
+README.md
+setup.py
+snakebattleclient/Main.py
+snakebattleclient/SnakeBattleClient.py
+snakebattleclient.egg-info/PKG-INFO
+snakebattleclient.egg-info/SOURCES.txt
+snakebattleclient.egg-info/dependency_links.txt
+snakebattleclient.egg-info/entry_points.txt
+snakebattleclient.egg-info/requires.txt
+snakebattleclient.egg-info/top_level.txt
