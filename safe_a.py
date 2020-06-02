@@ -264,9 +264,7 @@ class Logic:
                             print('rage: ', len(gcb._find_all(*enemies_bodies)))
                             targets = gcb._find_all(Element('APPLE'), Element('FURY_PILL'), Element('GOLD'), Element('STONE'), *enemies_bodies)
                             
-                        
-                        
-                        #targets = [t for t in targets if src_gcb.get_element_at(t) != Element('WALL')]
+                                              #targets = [t for t in targets if src_gcb.get_element_at(t) != Element('WALL')]
                             
                         if first_rage:
                             pass
@@ -286,7 +284,7 @@ class Logic:
                         
                         if rage:
                             pass
-                            print('targets_with_dists:', targets_with_dists)
+                            #print('targets_with_dists:', targets_with_dists)
                         
                         if len(targets_with_dists) > 0 and True:
                             dist = targets_with_dists[0][1]
@@ -297,31 +295,39 @@ class Logic:
                             
                             for t, d, c in targets_with_dists:
                                 if gcb.get_element_at(t) in enemies_bodies:
-                                    solution_found = True
                                     ps = list(gcb.get_next_step_to(t, rage))
-                                    break
+                                    if len(ps) > 0:
+                                        solution_found = True
+                                        break
                             
                             if not solution_found:
                                 targets_with_dists.sort(key=itemgetter(2))
-                                if rage:
-                                    print('targets_with_dists sorted by:', targets_with_dists)
+                                #if rage:
+                                    #print('targets_with_dists sorted by:', targets_with_dists)
                                 
-                                target = targets_with_dists[-1]
-                                if rage:
-                                    pass
-                                    print('TARGET:', target)
+                                ne = 1
+                                while True and ne <= 3:
                                 
-                                ps = gcb.get_next_step_to(target[0], rage)
-                                ps = list(ps)
-                                #ps = [x for x in ps if src_gcb.get_element_at(x) != Element('WALL')]
+                                    target = targets_with_dists[-ne]
+                                    ne +=1
+                                    if rage:
+                                        pass
+                                        #print('TARGET:', target)
+                                    
+                                    
+                                    ps = gcb.get_next_step_to(target[0], rage)
+                                    ps = list(ps)
+                                    if len(ps) > 0:
+                                        break
+                                    #ps = [x for x in ps if src_gcb.get_element_at(x) != Element('WALL')]
                             
                             if rage:
                                 pass
-                                print('ps:', ps)
+                                #print('ps:', ps)
                             
                             if rage:
                                 pass
-                                print(ps)
+                                #print(ps)
                             if len(ps)>0:
                                 random.shuffle(ps)
                                 p = ps[0]
