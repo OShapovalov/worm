@@ -181,7 +181,7 @@ scores = defaultdict(lambda: 1000,
                         Element('APPLE').get_char():1,
                         Element('FURY_PILL').get_char():10000,
                         Element('GOLD').get_char():10,
-                        Element('STONE').get_char():5,
+                        Element('STONE').get_char():3,
                      })
 
 class Logic:
@@ -238,7 +238,7 @@ class Logic:
             
             if rage and not self.prev_rage:
                 first_rage = True
-                self.ticks_rage = 14
+                self.ticks_rage = 9
             self.ticks_rage -= 1
             self.prev_rage = rage
             if self.ticks_rage <= 0:
@@ -326,7 +326,7 @@ class Logic:
                                 random.shuffle(ps)
                                 p = ps[0]
                                 if gcb.get_element_at(p) == Element('FURY_PILL'):
-                                    self.ticks_rage += 15
+                                    self.ticks_rage += 10
                                 if my_head.shift_top(1) == p:
                                     self.prev_action = SnakeAction.UP
                                     return self.prev_action
